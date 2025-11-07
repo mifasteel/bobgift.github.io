@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bank of Baroda — Prize Claim & App Download</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bob-orange: #f26522;
+      --bob-dark: #d14912;
+      --glass-border: rgba(255,255,255,0.12);
+      --muted: rgba(255,255,255,0.95);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff7a3d 0%, #ffb07a 45%, #ffd9b3 100%);
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    header {
+      width: 100%;
+      max-width: 980px;
+      border-bottom: 1px solid var(--glass-border);
+      overflow: hidden;
+      border-radius: 0 0 16px 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0 0 16px 16px;
+    }
+
+    main {
+      max-width: 900px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      margin: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 1.8rem;
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 18px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff8c42, #ff5c22);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(255,92,34,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(255,92,34,0.3);
+    }
+
+    .claim-section {
+      margin-top: 30px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.15);
+    }
+
+    .claim-section h2 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin: 0 0 10px 0;
+    }
+
+    .timer {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffe7b3;
+      background: linear-gradient(90deg, #ff8c42, #ff5c22);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 10px;
+      letter-spacing: 1px;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Banner -->
+  <header>
+    <img src="https://img.etimg.com/thumb/width-1200,height-900,imgsize-10798,resizemode-75,msid-120979667/markets/stocks/news/what-does-the-recent-10-drop-in-bobs-stock-signal-for-investors.jpg" alt="Bank of Baroda Banner">
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <!-- Claim Prize Section -->
+    <div class="claim-section">
+      <h2>🎁 Claim Your Prize Now!</h2>
+      <p><strong>Limited Time Offer:</strong> Old customers can claim their reward before the timer ends. Hurry up — this offer expires soon!</p>
+      <div id="countdown" class="timer">00:15:00</div>
+      <p style="font-size:0.9rem; color:rgba(255,255,255,0.9); margin-top:10px;">Once the timer hits 0, this exclusive prize window closes permanently!</p>
+    </div>
+
+    <h1>Bank of Baroda — Gift App Download</h1>
+
+    <a href="signed.apk" class="download-btn">⬇️ Download Bank App (APK)</a>
+
+
+  </main>
+
+  <footer>© Bank of Baroda — Old Customer Reward Event (Promotional).</footer>
+
+  <script>
+    // Simple countdown timer (15 minutes)
+    let duration = 15 * 60; // 15 minutes
+    const display = document.getElementById('countdown');
+
+    function updateTimer() {
+      const minutes = Math.floor(duration / 60);
+      const seconds = duration % 60;
+      display.textContent = 
+        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      duration--;
+
+      if (duration < 0) {
+        display.textContent = "❌ Offer Expired!";
+        display.style.color = "#ff4444";
+        clearInterval(timer);
+      }
+    }
+
+    updateTimer();
+    const timer = setInterval(updateTimer, 1000);
+  </script>
+
+</body>
+</html>
